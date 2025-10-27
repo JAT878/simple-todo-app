@@ -1,0 +1,14 @@
+<h1>Todo List</h1>
+
+<div class="add">
+  <input [(ngModel)]="newTodoTitle" (keypress)="onKeyPress($event)" placeholder="Add todo...">
+  <button (click)="addTodo()" [disabled]="!newTodoTitle.trim()">Add</button>
+</div>
+
+<p *ngIf="todos.length === 0">No todos yet</p>
+
+<div *ngFor="let todo of todos" class="item" [class.done]="todo.isCompleted">
+  <input type="checkbox" [checked]="todo.isCompleted" (change)="toggleComplete(todo)">
+  <span [class.done]="todo.isCompleted">{{ todo.title }}</span>
+  <button (click)="deleteTodo(todo.id)">Delete</button>
+</div>

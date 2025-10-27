@@ -1,24 +1,32 @@
-# Simple Todo App
+# Todo App
 
-A simple in-memory todo list built with Angular 19
+A simple todo list with Angular 19 frontend and .NET 9 Web API backend. In-memory storage.
 
 ## Run
-From working directory
 
+### Backend (.NET API)
+```
+cd backend/TodoApi
+dotnet run
+```
+API runs at `http://localhost:5000`
+
+### Frontend (Angular)
 ```
 npm install
 npm start
 ```
-
-Open `http://localhost:4200`
+App runs at `http://localhost:4200`
 
 ## Structure
 
-```
-src/app/
-├── todo.component.ts     
-├── todo.component.html   
-└── todo.component.css   
-```
+**Backend:**
+- `backend/TodoApi/Program.cs` 
 
-Todos stored in memory, reset on refresh.
+**Frontend:**
+- `src/app/todo.service.ts` - HTTP calls to backend API
+- `src/app/todo.component.ts` - Component logic
+- `src/app/todo.component.html` - Template
+- `src/app/todo.component.css` - Styles
+
+Both servers must be running. Todos reset when API stops.
